@@ -2,7 +2,7 @@ name: job_wheel
 description: A first Flutter package project.
 version: 0.0.1
 author: D. H. Bradshaw
-homepage: https://github.com/dhbradshaw
+homepage: https://github.com/dhbradshaw/job_wheel
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
