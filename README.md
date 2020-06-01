@@ -30,6 +30,6 @@ JobWheel(
 
 The result of this would be something like
 
-<https://fhe-wheel.surge.sh/?offset=1&turnSeconds=604800&start=2020-03-30&outerChoices=Mom,Dad,Jill,John&innerChoices=Dishes,Trash,Laundry,Cooking#/>
+<https://fhe-wheel.surge.sh/?title=Jobs&offset=1&turnSeconds=604800&start=2020-03-30&outerChoices=Mom,Dad,Jill,John&innerChoices=Dishes,Trash,Laundry,Cooking#/>
 
 ## Installation
