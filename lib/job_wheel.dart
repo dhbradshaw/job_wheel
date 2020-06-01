@@ -83,7 +83,7 @@ class Star extends CustomPainter {
     // basic geometry
     var radius = min(size.width / 2, size.height / 2);
     var angle = 2 * pi / choices.length;
-    var offset_angle = 2 * pi * number / choices.length;
+    var offsetAngle = 2 * pi * number / choices.length;
 
     // linePaint
     var linePaint = Paint();
@@ -94,7 +94,7 @@ class Star extends CustomPainter {
     // Draw lines
     canvas.save();
     canvas.translate(size.width / 2, size.height / 2);
-    canvas.rotate(offset_angle);
+    canvas.rotate(offsetAngle);
     for (var _ in Iterable.generate(choices.length)) {
       canvas.drawLine(Offset(0, 0), Offset(0, -radius), linePaint);
       canvas.rotate(angle);
@@ -110,7 +110,7 @@ class Star extends CustomPainter {
     final writeWidth = angle * writeRadius;
     canvas.save();
     canvas.translate(size.width / 2, size.height / 2);
-    canvas.rotate(offset_angle);
+    canvas.rotate(offsetAngle);
     canvas.rotate(angle / 2);
     final constraints = ui.ParagraphConstraints(width: 1000);
 
@@ -143,7 +143,6 @@ class Star extends CustomPainter {
     }
     canvas.restore();
 
-    void paintLines() {}
   }
 
   // Since this Sky painter has no fields, it always paints
