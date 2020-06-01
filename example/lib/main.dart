@@ -7,19 +7,12 @@ void main() => runApp(WheelApp());
 class WheelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FHE Wheel',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
-      home: WheelHomePage(title: 'FHE Wheel'),
-    );
+    return WheelHomePage();
   }
 }
 
 class WheelHomePage extends StatefulWidget {
-  WheelHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+  WheelHomePage({Key key}) : super(key: key);
   @override
   _WheelHomePageState createState() => _WheelHomePageState();
 }
@@ -30,6 +23,7 @@ class _WheelHomePageState extends State<WheelHomePage> {
   List<String> innerChoices = [];
   List<String> outerChoices = [];
   double offset = 0;
+  String title = "Job Wheel";
 
   _WheelHomePageState() : super() {
     var uri = Uri.tryParse(js.context['location']['href']);
@@ -46,8 +40,13 @@ class _WheelHomePageState extends State<WheelHomePage> {
         "Scripture",
         "Gratitude",
       ];
+    
+    // Resolve title.
+    if (params.containsKey("title")) {
+      this.title = params["title"];
+    }
 
-    // // Resolve innerChoices.
+    // Resolve innerChoices.
     if (params.containsKey("innerChoices")) {
       this.innerChoices = params["innerChoices"].split(",");
     } else
@@ -83,7 +82,12 @@ class _WheelHomePageState extends State<WheelHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      title: this.title,
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+      ),
+      home: Scaffold(
       body: JobWheel(
         number: _counter + this.offset,
         outerChoices: this.outerChoices,
@@ -94,6 +98,7 @@ class _WheelHomePageState extends State<WheelHomePage> {
         tooltip: 'Increment',
         child: Text("$_counter"),
       ),
+    ),
     );
   }
 }
